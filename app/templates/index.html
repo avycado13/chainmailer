@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Places Autocomplete</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=places"></script>
+</head>
+<body>
+    <h1>Submit Your Details</h1>
+    <form method="post">
+        {{ form.csrf_token }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=32) }}
+        </p>
+        <p>
+            {{ form.location.label }}<br>
+            {{ form.location(size=64) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <script>
+        function initAutocomplete() {
+            const input = document.getElementById("autocomplete");
+            const autocomplete = new google.maps.places.Autocomplete(input, {
+                types: ["geocode"],
+            });
+        }
+        google.maps.event.addDomListener(window, "load", initAutocomplete);
+    </script>
+</body>
+</html>

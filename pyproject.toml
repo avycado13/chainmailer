@@ -1,0 +1,13 @@
+[project]
+name = "chainmail"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "flask-wtf>=1.2.2",
+    "flask>=3.1.0",
+    "flask-admin>=1.6.1",
+    "flask-sqlalchemy>=3.1.1",
+    "googlemaps>=4.10.0",
+]
